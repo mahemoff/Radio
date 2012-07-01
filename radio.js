@@ -46,15 +46,31 @@
     version: '0.2',
     channelName: "",
     channels: [],
+    durableChannels: [],
 
     /**
-     * Reset global state, by removing all channels
+     * Reset global state, by removing all channels not marked as
+     * durable
      * @example
      *    radio()
      */
     reset: function() {
       radio.$.channelName = "";
-      radio.$.channels = [];
+      var channelName;
+      for (channelName in radio.$.channels) {
+        if (!radio.$.durableChannels[channelName])
+          delete radio.$.channels[channelName]
+      }
+    },
+
+    /**
+     * Declares a channel as durable, so it will survive resets
+     * @example
+     *    radio()
+     */
+    durable: function() {
+      radio.$.durableChannels[this.channelName] = true
+      return this;
     },
  
     /**
