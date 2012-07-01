@@ -49,8 +49,7 @@
     durableChannels: [],
 
     /**
-     * Reset global state, by removing all channels not marked as
-     * durable
+     * Reset global state, by removing all channels not marked as durable
      * @example
      *    radio()
      */
