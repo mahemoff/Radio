@@ -66,7 +66,7 @@
     /**
      * Declares a channel as durable, so it will survive resets
      * @example
-     *    radio()
+     *    radio('channel').durable();
      */
     durable: function() {
       radio.$.durableChannels[this.channelName] = true
